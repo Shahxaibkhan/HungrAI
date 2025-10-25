@@ -1,4 +1,5 @@
-const apiBase = "http://localhost:4000"; // backend base URL
+// Use environment variable for API base URL, fallback to localhost for development
+const apiBase = window.API_BASE_URL || "http://localhost:4000"; // backend base URL
 let currentRestaurant = null;
 let sessionId = localStorage.getItem("hungraiSession");
 if (!sessionId) {

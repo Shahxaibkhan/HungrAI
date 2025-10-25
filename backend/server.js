@@ -36,5 +36,14 @@ app.use('/api/orders', orderRoutes);
 
 app.get('/', (req,res)=> res.send('Hungrai Backend running'));
 
+// Health check endpoint for Render
+app.get('/health', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime()
+  });
+});
+
 
 app.listen(PORT, ()=> console.log(`Server running on ${PORT}`));
