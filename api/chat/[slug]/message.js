@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const Restaurant = require('../../../backend/src/models/Restaurant');
-const Order = require('../../../backend/src/models/Order');
-const { buildPromptAndCallLLM } = require('../../../backend/src/lib/promptOrchestrator');
+const Restaurant = require('../../../lib/models/Restaurant');
+const Order = require('../../../lib/models/Order');
+const { buildPromptAndCallLLM } = require('../../../lib/lib/promptOrchestrator');
 const fs = require('fs');
 const path = require('path');
 

@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Order = require('../../../backend/src/models/Order');
+const Order = require('../../../lib/models/Order');
 
 // Database connection
 let isConnected = false;

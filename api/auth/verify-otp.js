@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = require('../../../backend/src/models/User');
+const User = require('../../../lib/models/User');
 const jwt = require('jsonwebtoken');
 
 // Database connection

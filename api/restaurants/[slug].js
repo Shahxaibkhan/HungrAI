@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Restaurant = require('../../../backend/src/models/Restaurant');
-const MenuItem = require('../../../backend/src/models/MenuItem');
+const Restaurant = require('../../../lib/models/Restaurant');
+const MenuItem = require('../../../lib/models/MenuItem');
 
 // Database connection
 let isConnected = false;
