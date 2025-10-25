@@ -5,8 +5,9 @@
     <title>Hungrai — Order Smarter</title>
     <link rel="stylesheet" href="style.css?v=2.0" />
     <script>
-      // Set API base URL for production
-      window.API_BASE_URL = "https://hungrai-backend.onrender.com";
+      // Set API base URL for Vercel deployment
+      // In production, Vercel will serve both frontend and API from the same domain
+      window.API_BASE_URL = window.location.origin;
     </script>
   </head>
   <body>
