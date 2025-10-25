@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hungrai — Order Smarter</title>
+    <link rel="stylesheet" href="style.css?v=2.0" />
+  </head>
+  <body>
+    <header>
+      <h1>🍔 Hungrai</h1>
+      <input
+        type="text"
+        id="searchBox"
+        placeholder="Search restaurant..."
+      />
+    </header>
+
+    <!-- top: brands / restaurants -->
+    <section id="brands"></section>
+
+    <!-- bottom: chat interface -->
+    <section id="chatSection">
+      <div id="chatHeader">
+        <span id="chatTitle">Select a restaurant to start chatting</span>
+      </div>
+      <div id="chatMessages"></div>
+      <div id="chatInput">
+        <input id="msgInput" placeholder="Type a message..." />
+        <button id="sendBtn">➤</button>
+      </div>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>

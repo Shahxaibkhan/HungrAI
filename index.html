@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hungrai Demo</title>
+  </head>
+  <body>
+    <h2 style="font-family: Arial; text-align: center;">
+      🍔 Hungrai AI Waiter Demo
+    </h2>
+
+    <p style="text-align: center;">Chat below with your restaurant assistant 👇</p>
+
+    <script>
+      (function(){
+        const restaurant = "demo-burger-bistro"; // same as your seed data
+        const apiBase = "http://localhost:4000"; // your backend
+        if (!localStorage.getItem("hungraiSession")) {
+          localStorage.setItem("hungraiSession", crypto.randomUUID());
+        }
+        const sessionId = localStorage.getItem("hungraiSession");
+
+        // Floating button
+        const bubble = document.createElement("div");
+        bubble.innerText = "💬 Chat with Hungrai";
+        Object.assign(bubble.style, {
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          background: "#000",
+          color: "#fff",
+          padding: "12px 16px",
+          borderRadius: "20px",
+          cursor: "pointer",
+          fontFamily: "Arial",
+          zIndex: "99999",
+        });
+        document.body.appendChild(bubble);
+
+        // Chat window
+        const chatBox = document.createElement("div");
+        Object.assign(chatBox.style, {
+          position: "fixed",
+          bottom: "80px",
+          right: "20px",
+          width: "350px",
+          height: "450px",
+          background: "#fff",
+          borderRadius: "12px",
+          border: "1px solid #ccc",
+          display: "none",
+          flexDirection: "column",
+          overflow: "hidden",
+          boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+        });
+        document.body.appendChild(chatBox);
+
+        const msgs = document.createElement("div");
+        Object.assign(msgs.style, {
+          flex: "1",
+          padding: "10px",
+          overflowY: "auto",
+          fontFamily: "Arial",
+        });
+        chatBox.appendChild(msgs);
+
+        const inputWrap = document.createElement("div");
+        inputWrap.style.display = "flex";
+        inputWrap.style.borderTop = "1px solid #eee";
+        const input = document.createElement("input");
+        Object.assign(input.style, { flex: "1", padding: "8px", border: "none", outline: "none" });
+        const sendBtn = document.createElement("button");
+        sendBtn.innerText = "Send";
+        Object.assign(sendBtn.style, {
+          background: "#000",
+          color: "#fff",
+          border: "none",
+          padding: "8px 12px",
+          cursor: "pointer",
+        });
+        inputWrap.appendChild(input);
+        inputWrap.appendChild(sendBtn);
+        chatBox.appendChild(inputWrap);
+
+        bubble.onclick = () => (chatBox.style.display = chatBox.style.display === "none" ? "flex" : "none");
+
+        function append(who, text) {
+          const el = document.createElement("div");
+          el.style.margin = "6px 0";
+          el.innerHTML = `<b>${who}:</b> ${text}`;
+          msgs.appendChild(el);
+          msgs.scrollTop = msgs.scrollHeight;
+        }
+
+        async function sendMessage() {
+          const msg = input.value.trim();
+          if (!msg) return;
+          append("You", msg);
+          input.value = "";
+          append("Hungrai", "...");
+          try {
+            const res = await fetch(`${apiBase}/api/chat/${restaurant}/message`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message: msg, sessionId }),
+            });
+            const data = await res.json();
+            msgs.lastChild.innerHTML = `<b>Hungrai:</b> ${data.reply}`;
+            if (data.orderId)
+              append("Hungrai", `✅ Order placed successfully — ID: ${data.orderId}`);
+          } catch (e) {
+            msgs.lastChild.innerHTML = `<b>Hungrai:</b> Sorry, something went wrong.`;
+          }
+        }
+
+        sendBtn.onclick = sendMessage;
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") sendMessage();
+        });
+
+        append("Hungrai", "👋 Hi there! I’m Hungrai — your smart food assistant.");
+      })();
+    </script>
+  </body>
+</html>
