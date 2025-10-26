@@ -1,5 +1,6 @@
-// Use environment variable for API base URL, fallback to localhost for development
-const apiBase = window.API_BASE_URL || "http://localhost:4000"; // backend base URL
+// Use relative URLs in production (works on any Netlify domain)
+// For local dev, use window.API_BASE_URL = "http://localhost:8888" in index.html
+const apiBase = window.API_BASE_URL !== undefined ? window.API_BASE_URL : ""; // Empty string = relative URLs
 let currentRestaurant = null;
 let sessionId = localStorage.getItem("hungraiSession");
 if (!sessionId) {
