@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Portal - Hungrai</title>
+  <link rel="stylesheet" href="portal-style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="portal-header">
+      <h1>🍔 Hungrai Restaurant Portal</h1>
+      <p>Grow your business with AI-powered ordering</p>
+    </header>
+
+    <!-- Login/Register Toggle -->
+    <div class="auth-container" id="authContainer">
+      <div class="auth-tabs">
+        <button class="tab-btn active" onclick="showTab('login')">Login</button>
+        <button class="tab-btn" onclick="showTab('register')">Register</button>
+      </div>
+
+      <!-- Login Form -->
+      <div id="loginForm" class="auth-form active">
+        <h2>Welcome Back</h2>
+        <form onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" required placeholder="Enter password">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+
+      <!-- Registration Form -->
+      <div id="registerForm" class="auth-form">
+        <h2>Register Your Restaurant</h2>
+        <form onsubmit="handleRegister(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="restaurantName">Restaurant Name *</label>
+              <input type="text" id="restaurantName" required placeholder="e.g., Joe's Pizza">
+            </div>
+            <div class="form-group">
+              <label for="ownerName">Owner Name *</label>
+              <input type="text" id="ownerName" required placeholder="Your full name">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" required placeholder="contact@restaurant.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone *</label>
+              <input type="tel" id="phone" required placeholder="+1 (555) 123-4567">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address">Address *</label>
+            <input type="text" id="address" required placeholder="123 Main Street, City, State ZIP">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Restaurant Description</label>
+            <textarea id="description" rows="3" placeholder="Tell customers about your restaurant..."></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cuisine">Cuisine Type</label>
+              <select id="cuisine">
+                <option value="">Select cuisine</option>
+                <option value="american">American</option>
+                <option value="italian">Italian</option>
+                <option value="chinese">Chinese</option>
+                <option value="indian">Indian</option>
+                <option value="mexican">Mexican</option>
+                <option value="japanese">Japanese</option>
+                <option value="thai">Thai</option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="fast-food">Fast Food</option>
+                <option value="cafe">Cafe</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="logo">Logo Emoji</label>
+              <input type="text" id="logo" placeholder="🍕 (emoji only)" maxlength="2">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password *</label>
+            <input type="password" id="password" required placeholder="Create a password" minlength="6">
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password *</label>
+            <input type="password" id="confirmPassword" required placeholder="Confirm password">
+          </div>
+
+          <div class="form-group checkbox">
+            <label>
+              <input type="checkbox" id="terms" required>
+              I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Dashboard (hidden initially) -->
+    <div id="dashboard" class="dashboard hidden">
+      <nav class="dashboard-nav">
+        <div class="nav-brand">
+          <h2 id="dashboardRestaurantName">Restaurant Name</h2>
+          <span class="status-badge active">Active</span>
+        </div>
+        <div class="nav-menu">
+          <button class="nav-btn active" onclick="showDashboardSection('overview')">📊 Overview</button>
+          <button class="nav-btn" onclick="showDashboardSection('menu')">🍽️ Menu</button>
+          <button class="nav-btn" onclick="showDashboardSection('orders')">📦 Orders</button>
+          <button class="nav-btn" onclick="showDashboardSection('settings')">⚙️ Settings</button>
+          <button class="nav-btn logout" onclick="handleLogout()">🚪 Logout</button>
+        </div>
+      </nav>
+
+      <!-- Overview Section -->
+      <div id="overviewSection" class="dashboard-section active">
+        <h3>Dashboard Overview</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <div class="stat-info">
+              <h4>Total Orders</h4>
+              <p class="stat-value" id="totalOrders">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">💰</div>
+            <div class="stat-info">
+              <h4>Revenue</h4>
+              <p class="stat-value" id="totalRevenue">$0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🍽️</div>
+            <div class="stat-info">
+              <h4>Menu Items</h4>
+              <p class="stat-value" id="totalMenuItems">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-info">
+              <h4>Rating</h4>
+              <p class="stat-value" id="avgRating">5.0</p>
+            </div>
+          </div>
+        </div>
+        <div class="recent-orders">
+          <h4>Recent Orders</h4>
+          <div id="recentOrdersList">
+            <p class="no-data">No orders yet</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Menu Management Section -->
+      <div id="menuSection" class="dashboard-section">
+        <div class="section-header">
+          <h3>Menu Management</h3>
+          <button class="btn btn-primary" onclick="showAddMenuItem()">+ Add Item</button>
+        </div>
+        <div id="menuItemsList" class="menu-items-grid">
+          <!-- Menu items will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Orders Section -->
+      <div id="ordersSection" class="dashboard-section">
+        <h3>Order Management</h3>
+        <div id="ordersList">
+          <!-- Orders will be loaded here -->
+        </div>
+      </div>
+
+      <!-- Settings Section -->
+      <div id="settingsSection" class="dashboard-section">
+        <h3>Restaurant Settings</h3>
+        <form id="settingsForm" onsubmit="handleUpdateSettings(event)">
+          <div class="form-group">
+            <label for="settingsName">Restaurant Name</label>
+            <input type="text" id="settingsName" required>
+          </div>
+          <div class="form-group">
+            <label for="settingsDescription">Description</label>
+            <textarea id="settingsDescription" rows="4"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="settingsPhone">Phone</label>
+              <input type="tel" id="settingsPhone">
+            </div>
+            <div class="form-group">
+              <label for="settingsAddress">Address</label>
+              <input type="text" id="settingsAddress">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="settingsIsActive">
+              Restaurant is accepting orders
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Adding/Editing Menu Item -->
+  <div id="menuItemModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add Menu Item</h3>
+        <button class="close-btn" onclick="closeMenuItemModal()">×</button>
+      </div>
+      <form id="menuItemForm" onsubmit="handleSaveMenuItem(event)">
+        <input type="hidden" id="menuItemId">
+        <div class="form-group">
+          <label for="itemTitle">Item Name *</label>
+          <input type="text" id="itemTitle" required placeholder="e.g., Classic Burger">
+        </div>
+        <div class="form-group">
+          <label for="itemDescription">Description</label>
+          <textarea id="itemDescription" rows="3" placeholder="Describe your dish..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="itemPrice">Price ($) *</label>
+            <input type="number" id="itemPrice" step="0.01" min="0" required placeholder="9.99">
+          </div>
+          <div class="form-group">
+            <label for="itemCategory">Category</label>
+            <select id="itemCategory">
+              <option value="Appetizers">Appetizers</option>
+              <option value="Main Course">Main Course</option>
+              <option value="Burgers">Burgers</option>
+              <option value="Sides">Sides</option>
+              <option value="Desserts">Desserts</option>
+              <option value="Beverages">Beverages</option>
+              <option value="Specials">Specials</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="itemImage">Image/Emoji</label>
+          <input type="text" id="itemImage" placeholder="🍔 or image URL">
+        </div>
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" id="itemAvailable" checked>
+            Available for ordering
+          </label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeMenuItemModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="portal-app.js"></script>
+</body>
+</html>
