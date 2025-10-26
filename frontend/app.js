@@ -198,11 +198,11 @@ async function sendMessage() {
 
   try {
     const res = await fetch(
-      `${apiBase}/api/chat/${currentRestaurant.slug}/message`,
+      `${apiBase}/.netlify/functions/chat?slug=${currentRestaurant.slug}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: msg, sessionId }),
+        body: JSON.stringify({ message: msg, userPhone: "guest", sessionId }),
       }
     );
 
@@ -406,7 +406,7 @@ function showOrderTracking(orderId) {
 
 async function updateOrderStatus(orderId) {
   try {
-    const response = await fetch(`${apiBase}/api/orders/${orderId}/status`);
+    const response = await fetch(`${apiBase}/.netlify/functions/orders/${orderId}`);
     const data = await response.json();
     
     if (response.ok) {
