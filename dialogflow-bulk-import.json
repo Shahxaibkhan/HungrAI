@@ -65,9 +65,9 @@
         {
           "text": {
             "text": [
-              "Here's our menu! Popular: Basic (Rs.550), Maxxx (Rs.680). Want the full list or tell me what to add?",
-              "Menu coming up! We have burgers, fries, dips, and specials. What catches your eye?",
-              "Here are our options: Burgers, Fries, Dips, and more. Say 'add [item]' or ask for details!"
+              "Here's our menu! Let me show you what's available today.",
+              "Menu coming up! What catches your eye?",
+              "Here are our options. Tell me what to add!"
             ]
           }
         }
@@ -77,33 +77,28 @@
       "displayName": "add_item",
       "priority": 500000,
       "trainingPhrases": [
-        {"parts": [{"text": "add "}, {"text": "zinger burger", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "I want a "}, {"text": "zinger", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "2", "entityType": "@sys.number", "alias": "quantity"}, {"text": " "}, {"text": "zinger burgers", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "add "}, {"text": "3", "entityType": "@sys.number", "alias": "quantity"}, {"text": " "}, {"text": "maxxx", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "give me one "}, {"text": "loaded fries", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "put "}, {"text": "masala fries", "entityType": "@menu_item", "alias": "item_name"}, {"text": " in cart"}]},
-        {"parts": [{"text": "can I get "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}, {"text": " large fries"}]},
-        {"parts": [{"text": "I'll take a "}, {"text": "maxxx", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "add another "}, {"text": "maxxx", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "need "}, {"text": "3", "entityType": "@sys.number", "alias": "quantity"}, {"text": " sauces "}, {"text": "honey mustard", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "add "}, {"text": "garlic dip", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "throw in a large "}, {"text": "loaded fries", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "1", "entityType": "@sys.number", "alias": "quantity"}, {"text": " "}, {"text": "zinger", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "get me "}, {"text": "basic", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "order "}, {"text": "fries", "entityType": "@menu_item", "alias": "item_name"}]}
+        {"parts": [{"text": "add burger"}]},
+        {"parts": [{"text": "I want a pizza"}]},
+        {"parts": [{"text": "2", "entityType": "@sys.number", "alias": "quantity"}, {"text": " chicken burgers"}]},
+        {"parts": [{"text": "add "}, {"text": "3", "entityType": "@sys.number", "alias": "quantity"}, {"text": " fries"}]},
+        {"parts": [{"text": "give me one loaded fries"}]},
+        {"parts": [{"text": "put masala fries in cart"}]},
+        {"parts": [{"text": "can I get "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}, {"text": " large drinks"}]},
+        {"parts": [{"text": "I'll take a sandwich"}]},
+        {"parts": [{"text": "add another burger"}]},
+        {"parts": [{"text": "need "}, {"text": "3", "entityType": "@sys.number", "alias": "quantity"}, {"text": " dips"}]},
+        {"parts": [{"text": "add garlic sauce"}]},
+        {"parts": [{"text": "throw in a large side"}]},
+        {"parts": [{"text": "1", "entityType": "@sys.number", "alias": "quantity"}, {"text": " chicken"}]},
+        {"parts": [{"text": "get me special"}]},
+        {"parts": [{"text": "order combo"}]},
+        {"parts": [{"text": "add appetizer"}]},
+        {"parts": [{"text": "I want dessert"}]},
+        {"parts": [{"text": "give me soup"}]},
+        {"parts": [{"text": "add salad"}]},
+        {"parts": [{"text": "order main dish"}]}
       ],
       "parameters": [
-        {
-          "displayName": "item_name",
-          "entityTypeDisplayName": "@menu_item",
-          "isList": false,
-          "mandatory": true,
-          "prompts": [
-            "Which item would you like to add?",
-            "What item should I add to your cart?"
-          ]
-        },
         {
           "displayName": "quantity",
           "entityTypeDisplayName": "@sys.number",
@@ -116,9 +111,9 @@
         {
           "text": {
             "text": [
-              "Added $quantity $item_name to your cart. Anything else?",
-              "Got it! Added $quantity $item_name. Want fries or a dip with that?",
-              "$item_name added ($quantity). Continue ordering or checkout?"
+              "I'll add that to your cart. Let me process your order...",
+              "Got it! Adding to cart. Want anything else?",
+              "Adding items now. Continue ordering or checkout?"
             ]
           }
         }
@@ -128,32 +123,29 @@
       "displayName": "remove_item",
       "priority": 500000,
       "trainingPhrases": [
-        {"parts": [{"text": "remove "}, {"text": "zinger", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "take out "}, {"text": "maxxx", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "delete "}, {"text": "fries", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "remove "}, {"text": "loaded fries", "entityType": "@menu_item", "alias": "item_name"}, {"text": " from cart"}]},
-        {"parts": [{"text": "take off the "}, {"text": "burger", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "remove one "}, {"text": "masala fries", "entityType": "@menu_item", "alias": "item_name"}]},
+        {"parts": [{"text": "remove burger"}]},
+        {"parts": [{"text": "take out pizza"}]},
+        {"parts": [{"text": "delete fries"}]},
+        {"parts": [{"text": "remove chicken from cart"}]},
+        {"parts": [{"text": "take off the sandwich"}]},
+        {"parts": [{"text": "remove one drink"}]},
         {"parts": [{"text": "undo last item"}]},
-        {"parts": [{"text": "remove the "}, {"text": "garlic dip", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "cancel "}, {"text": "basic", "entityType": "@menu_item", "alias": "item_name"}]},
-        {"parts": [{"text": "don't want "}, {"text": "fries", "entityType": "@menu_item", "alias": "item_name"}]}
+        {"parts": [{"text": "remove the sauce"}]},
+        {"parts": [{"text": "cancel appetizer"}]},
+        {"parts": [{"text": "don't want dessert"}]},
+        {"parts": [{"text": "delete salad"}]},
+        {"parts": [{"text": "remove soup"}]},
+        {"parts": [{"text": "take out combo"}]},
+        {"parts": [{"text": "cancel side"}]}
       ],
-      "parameters": [
-        {
-          "displayName": "item_name",
-          "entityTypeDisplayName": "@menu_item",
-          "isList": false,
-          "mandatory": false
-        }
-      ],
+      "parameters": [],
       "messages": [
         {
           "text": {
             "text": [
-              "Removed $item_name from cart. Want to add something else?",
-              "$item_name removed. Continue ordering?",
-              "Got it, took out $item_name. Anything else?"
+              "I'll remove that from your cart. Want to add something else?",
+              "Item removed. Continue ordering?",
+              "Got it, took it out. Anything else?"
             ]
           }
         }
@@ -163,41 +155,31 @@
       "displayName": "change_quantity",
       "priority": 500000,
       "trainingPhrases": [
-        {"parts": [{"text": "make "}, {"text": "zinger", "entityType": "@menu_item", "alias": "item_name"}, {"text": " "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}, {"text": " instead of 1"}]},
-        {"parts": [{"text": "change "}, {"text": "maxxx", "entityType": "@menu_item", "alias": "item_name"}, {"text": " to "}, {"text": "3", "entityType": "@sys.number", "alias": "quantity"}]},
-        {"parts": [{"text": "set "}, {"text": "fries", "entityType": "@menu_item", "alias": "item_name"}, {"text": " to "}, {"text": "4", "entityType": "@sys.number", "alias": "quantity"}]},
-        {"parts": [{"text": "update "}, {"text": "loaded fries", "entityType": "@menu_item", "alias": "item_name"}, {"text": " quantity to "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}]},
-        {"parts": [{"text": "increase "}, {"text": "maxxx", "entityType": "@menu_item", "alias": "item_name"}, {"text": " to "}, {"text": "5", "entityType": "@sys.number", "alias": "quantity"}]},
-        {"parts": [{"text": "reduce "}, {"text": "fries", "entityType": "@menu_item", "alias": "item_name"}, {"text": " to "}, {"text": "1", "entityType": "@sys.number", "alias": "quantity"}]},
-        {"parts": [{"text": "change my "}, {"text": "burger", "entityType": "@menu_item", "alias": "item_name"}, {"text": " count to "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}]}
+        {"parts": [{"text": "make burger "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}, {"text": " instead of 1"}]},
+        {"parts": [{"text": "change pizza to "}, {"text": "3", "entityType": "@sys.number", "alias": "quantity"}]},
+        {"parts": [{"text": "set fries to "}, {"text": "4", "entityType": "@sys.number", "alias": "quantity"}]},
+        {"parts": [{"text": "update chicken quantity to "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}]},
+        {"parts": [{"text": "increase sandwich to "}, {"text": "5", "entityType": "@sys.number", "alias": "quantity"}]},
+        {"parts": [{"text": "reduce drinks to "}, {"text": "1", "entityType": "@sys.number", "alias": "quantity"}]},
+        {"parts": [{"text": "change my combo count to "}, {"text": "2", "entityType": "@sys.number", "alias": "quantity"}]},
+        {"parts": [{"text": "make appetizer "}, {"text": "3", "entityType": "@sys.number", "alias": "quantity"}]},
+        {"parts": [{"text": "update soup to "}, {"text": "1", "entityType": "@sys.number", "alias": "quantity"}]}
       ],
       "parameters": [
-        {
-          "displayName": "item_name",
-          "entityTypeDisplayName": "@menu_item",
-          "isList": false,
-          "mandatory": true,
-          "prompts": [
-            "Which item's quantity should I change?"
-          ]
-        },
         {
           "displayName": "quantity",
           "entityTypeDisplayName": "@sys.number",
           "isList": false,
-          "mandatory": true,
-          "prompts": [
-            "What quantity do you want?"
-          ]
+          "mandatory": false
         }
       ],
       "messages": [
         {
           "text": {
             "text": [
-              "Updated $item_name quantity to $quantity. Anything else?",
-              "$item_name quantity set to $quantity. Continue?",
-              "Changed $item_name to $quantity. Want to review cart?"
+              "I'll update that quantity for you. Anything else?",
+              "Quantity updated. Continue?",
+              "Changed the amount. Want to review cart?"
             ]
           }
         }
@@ -379,7 +361,7 @@
         {
           "text": {
             "text": [
-              "I can help you order! Say things like 'add Zinger Burger', 'show menu', 'cart', or 'checkout'. Want to see the menu?",
+              "I can help you order! Say things like 'add burger', 'show menu', 'cart', or 'checkout'. Want to see the menu?",
               "Easy! You can ask for the 'menu', say 'add [item name]', check your 'cart', and 'checkout' when ready. What would you like?",
               "Here's how: 'menu' shows options, 'add [item]' puts it in cart, 'cart' reviews items, 'checkout' places order. Try 'menu' first!"
             ]
@@ -443,76 +425,5 @@
       ]
     }
   ],
-  "entityTypes": [
-    {
-      "displayName": "menu_item",
-      "kind": "KIND_MAP",
-      "entities": [
-        {
-          "value": "Basic",
-          "synonyms": ["basic", "Basic", "BASIC"]
-        },
-        {
-          "value": "Maxxx",
-          "synonyms": ["maxxx", "Maxxx", "MAXXX", "max", "maxx"]
-        },
-        {
-          "value": "Zinger Burger",
-          "synonyms": ["zinger burger", "zinger", "Zinger", "burger zinger", "zinger burg"]
-        },
-        {
-          "value": "Humongous Zinger Burger",
-          "synonyms": ["humongous zinger burger", "humongous zinger", "big zinger", "large zinger", "huge zinger"]
-        },
-        {
-          "value": "Medium Loaded Fries",
-          "synonyms": ["medium loaded fries", "loaded fries medium", "medium loaded", "loaded fries", "med loaded fries"]
-        },
-        {
-          "value": "Small Loaded Fries",
-          "synonyms": ["small loaded fries", "loaded fries small", "small loaded", "sm loaded fries"]
-        },
-        {
-          "value": "Large Loaded Fries",
-          "synonyms": ["large loaded fries", "loaded fries large", "large loaded", "lg loaded fries", "big loaded fries"]
-        },
-        {
-          "value": "Plain Fries",
-          "synonyms": ["plain fries", "fries plain", "regular fries", "normal fries", "simple fries"]
-        },
-        {
-          "value": "Salted Fries",
-          "synonyms": ["salted fries", "salt fries", "fries with salt"]
-        },
-        {
-          "value": "Masala Fries",
-          "synonyms": ["masala fries", "spicy fries", "masala", "seasoned fries"]
-        },
-        {
-          "value": "Supreme - Honey Mustard",
-          "synonyms": ["supreme honey mustard", "honey mustard", "mustard", "supreme", "honey mustard dip"]
-        },
-        {
-          "value": "Marlic - Garlic",
-          "synonyms": ["marlic garlic", "garlic", "garlic dip", "marlic", "garlic sauce"]
-        },
-        {
-          "value": "Twister Dip Sauce",
-          "synonyms": ["twister dip sauce", "twister", "twister dip", "twister sauce"]
-        },
-        {
-          "value": "Spicy Mexican - Chipotle",
-          "synonyms": ["spicy mexican chipotle", "chipotle", "mexican", "spicy mexican", "chipotle sauce"]
-        },
-        {
-          "value": "Fiery Fairy - Sweet & Spicy",
-          "synonyms": ["fiery fairy sweet spicy", "sweet spicy", "fiery fairy", "sweet and spicy", "spicy sweet"]
-        },
-        {
-          "value": "Twister - Cocktail",
-          "synonyms": ["twister cocktail", "cocktail", "cocktail sauce", "twister cocktail sauce"]
-        }
-      ]
-    }
-  ]
+  "entityTypes": []
 }
