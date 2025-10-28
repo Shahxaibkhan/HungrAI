@@ -21,6 +21,21 @@ const { classifyMessage } = require('../../api/intentRouter');
 const messenger = new WhatsAppMessenger();
 const sessionManager = new WhatsAppSessionManager();
 
+// Static fallback restaurant (used if DB lookup fails)
+const FALLBACK_RESTAURANT = {
+	slug: 'demo',
+	name: 'Demo Restaurant',
+	hours: 'Mon-Sun 9am-9pm',
+	address: '123 Demo Street',
+	ai: { mode: 'hybrid' },
+	menu: [
+		{ name: 'Margherita Pizza', price: 9.99, category: 'Pizzas', description: 'Classic tomato, mozzarella & basil' },
+		{ name: 'Veggie Burger', price: 8.49, category: 'Burgers', description: 'Grilled plant patty with lettuce & tomato' },
+		{ name: 'Chicken Wrap', price: 7.25, category: 'Wraps', description: 'Grilled chicken, veggies & sauce' },
+		{ name: 'Caesar Salad', price: 6.75, category: 'Salads', description: 'Crisp romaine with Caesar dressing' }
+	]
+};
+
 function normalizeMessage(entry) {
 	try {
 		const changes = entry.changes || [];
@@ -173,11 +188,14 @@ async function handler(event) {
 		for (const msg of allMessages) {
 			console.log('[DIAG] Normalized message meta:', { phoneNumberId: msg.phoneNumberId, hasText: !!msg.text, type: msg.type });
 			console.log(`[WHATSAPP INBOUND] from=${msg.from} type=${msg.type} text="${msg.text}"`);
-			const restaurant = await RestaurantLookup.findRestaurantByPhoneNumberId(msg.phoneNumberId);
+			let restaurant = await RestaurantLookup.findRestaurantByPhoneNumberId(msg.phoneNumberId);
 			if (!restaurant) {
-				console.error('❌ No restaurant found for phone number ID:', msg.phoneNumberId);
-				await messenger.sendTextMessage(msg.from, 'Sorry, this restaurant is not available right now. Please try again later.');
-				continue;
+				console.warn('⚠️ Using FALLBACK_RESTAURANT for phone ID:', msg.phoneNumberId);
+				restaurant = FALLBACK_RESTAURANT;
+				// Send a lightweight greeting if this is likely a first message
+				if (msg.text && /^(hi|hello|hey)$/i.test(msg.text.trim())) {
+					await messenger.sendTextMessage(msg.from, `Welcome to ${restaurant.name}! (fallback mode) 👋\nType 'menu' to see popular items.`);
+				}
 			}
 			await processUserMessage(msg, restaurant);
 		}
