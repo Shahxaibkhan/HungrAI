@@ -3,16 +3,27 @@
   "version": "1.0.0",
   "description": "Hungrai AI-powered food ordering chatbot",
   "scripts": {
-    "dev": "vercel dev",
+    "dev": "netlify dev",
     "build": "echo 'No build step required'",
-    "start": "vercel dev"
+    "start": "netlify dev",
+    "test": "node test-system.js",
+    "test:restaurant": "node -e \"require('./test-system').testRestaurant()\"",
+    "test:sessions": "node -e \"require('./test-system').testSessions()\"",
+    "test:gpt": "node -e \"require('./test-system').testGPT()\"",
+    "setup": "node -e \"require('./api/sampleRestaurant').createSampleRestaurant()\"",
+    "verify": "node verify-deployment.js",
+    "deploy": "netlify deploy --prod"
   },
   "dependencies": {
-    "mongoose": "^7.0.0",
-    "jsonwebtoken": "^9.0.0",
-    "openai": "^4.0.0",
+    "@google-cloud/dialogflow": "^7.3.0",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
-    "bullmq": "^1.79.0"
+    "bullmq": "^1.79.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.0",
+    "openai": "^4.0.0",
+    "uuid": "^13.0.0"
   }
 }
