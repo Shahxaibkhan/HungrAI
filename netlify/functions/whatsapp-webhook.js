@@ -2,9 +2,15 @@
 // Original source located previously at api/whatsapp-webhook.js
 // Instrumentation included for build verification.
 
-const BUILD_VERSION = 'v2025-10-28-3';
+const BUILD_VERSION = 'v2025-10-28-4';
 const TOKEN_TAIL = process.env.WHATSAPP_ACCESS_TOKEN ? process.env.WHATSAPP_ACCESS_TOKEN.slice(-8) : 'NO_TOKEN';
 console.log(`[BOOT] whatsapp-webhook starting build=${BUILD_VERSION} tokenTail=****${TOKEN_TAIL}`);
+console.log('[DIAG] Env present:', {
+	hasMongo: !!process.env.MONGODB_URI,
+	hasWA: !!process.env.WHATSAPP_ACCESS_TOKEN,
+	phoneId: process.env.WHATSAPP_PHONE_NUMBER_ID || null,
+	verifyTokenLen: process.env.WHATSAPP_VERIFY_TOKEN ? process.env.WHATSAPP_VERIFY_TOKEN.length : 0
+});
 
 const { connectDB } = require('../../api/dbConnection');
 const WhatsAppMessenger = require('../../api/whatsappMessenger');
@@ -154,6 +160,7 @@ async function handler(event) {
 			return { statusCode: 405, body: 'Method Not Allowed' };
 		}
 		const body = JSON.parse(event.body || '{}');
+		console.log('[DIAG] Raw event body keys:', Object.keys(body));
 		const entry = body.entry || [];
 		const allMessages = [];
 		for (const ent of entry) {
@@ -164,6 +171,7 @@ async function handler(event) {
 			return { statusCode: 200, body: JSON.stringify({ ok: true, messages: 0 }) };
 		}
 		for (const msg of allMessages) {
+			console.log('[DIAG] Normalized message meta:', { phoneNumberId: msg.phoneNumberId, hasText: !!msg.text, type: msg.type });
 			console.log(`[WHATSAPP INBOUND] from=${msg.from} type=${msg.type} text="${msg.text}"`);
 			const restaurant = await RestaurantLookup.findRestaurantByPhoneNumberId(msg.phoneNumberId);
 			if (!restaurant) {
