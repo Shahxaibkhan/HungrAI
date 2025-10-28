@@ -1,4 +1,7 @@
 // WhatsApp Cloud API Webhook handler - Complete Implementation
+// DEPRECATION NOTICE: This file is superseded by netlify/functions/whatsapp-webhook.js.
+// If you see logs from this file in production, the functions directory override may not be honored yet.
+console.log('[DEPRECATED] Using api/whatsapp-webhook.js instead of netlify/functions/whatsapp-webhook.js');
 // Handles verification (GET) and incoming messages (POST)
 // Uses environment variables: WHATSAPP_VERIFY_TOKEN, WHATSAPP_ACCESS_TOKEN
 // Build instrumentation added for deployment verification.
