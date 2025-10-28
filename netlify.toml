@@ -1,7 +1,7 @@
 [build]
   publish = "frontend"
-  functions = "api"
-  command = "npm install && echo Force rebuild $(date +%s)"
+  functions = "netlify/functions"
+  command = "npm install && echo Repointed functions dir $(date +%s)"
 
 [build.environment]
   NODE_VERSION = "18"
