@@ -24,10 +24,19 @@ function createNetlifyHandler(expressHandler) {
     let responseBody = null;
     let hasResponded = false;
 
-    const res = {
+      res = {
       status: (code) => {
         statusCode = code;
         return res;
+      },
+      send: (data) => {
+        hasResponded = true;
+        responseBody = {
+          statusCode,
+          headers: responseHeaders,
+          body: typeof data === 'string' ? data : JSON.stringify(data)
+        };
+        return responseBody;
       },
       json: (data) => {
         hasResponded = true;

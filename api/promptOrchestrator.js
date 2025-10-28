@@ -5,7 +5,21 @@
 // =========================================
 
 const OpenAI = require("openai");
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+// Initialize OpenAI client only when needed
+let openai = null;
+
+function getOpenAIClient() {
+  if (!openai) {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error('OPENAI_API_KEY environment variable is required');
+    }
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY
+    });
+  }
+  return openai;
+}
 
 /**
  * Evaluates an LLM response for quality and appropriateness
@@ -205,7 +219,7 @@ Return your evaluation as a JSON object ONLY:
     const enhancedEvalPrompt = evaluationPrompt + 
       (selfImprovementPrompt ? `\n\n${selfImprovementPrompt}` : '');
     
-    const evalResponse = await openai.chat.completions.create({
+    const evalResponse = await getOpenAIClient().chat.completions.create({
       model: "gpt-4o-mini", // Use a smaller/faster model for evaluation
       messages: [
         { role: "system", content: enhancedEvalPrompt },
@@ -444,7 +458,7 @@ ${menuSnippet}
       }
       
       // Call LLM with possibly adjusted messages
-      const resp = await openai.chat.completions.create({
+      const resp = await getOpenAIClient().chat.completions.create({
         model: "gpt-4.1-mini",
         messages: adjustedMessages,
         max_tokens: 600,
@@ -672,10 +686,126 @@ const getLearningInsights = () => {
   };
 };
 
+/**
+ * Extract menu items from user message using GPT
+ * @param {string} userMessage - User's message
+ * @param {Array} menu - Restaurant menu items
+ * @returns {Promise<Object>} - Extracted items with quantities
+ */
+async function extractMenuItems(userMessage, menu) {
+  try {
+    const menuItems = menu.map(item => `${item.name} - $${item.price}`).join('\n');
+    
+    const prompt = `
+Extract food items and quantities from this customer message.
+
+MENU ITEMS:
+${menuItems}
+
+CUSTOMER MESSAGE: "${userMessage}"
+
+Return a JSON object with this structure:
+{
+  "items": [
+    {
+      "name": "exact menu item name",
+      "quantity": number
+    }
+  ]
+}
+
+Rules:
+- Only include items that exist in the menu
+- Use exact menu item names
+- If no quantity specified, assume 1
+- If no valid items found, return empty items array
+`;
+
+    const response = await getOpenAIClient().chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.1,
+      max_tokens: 300
+    });
+
+    const result = JSON.parse(response.choices[0].message.content);
+    return result;
+
+  } catch (error) {
+    console.error('Error extracting menu items:', error);
+    return { items: [] };
+  }
+}
+
+/**
+ * Generate contextual response using GPT
+ * @param {Object} context - Context including restaurant, menu, cart, user message
+ * @returns {Promise<string>} - Generated response
+ */
+async function generateResponse(context) {
+  try {
+    const { restaurant, menu, cart, userMessage } = context;
+    
+    const menuText = menu.map(item => `${item.name} - $${item.price}`).join('\n');
+    const cartText = cart.items?.length > 0 
+      ? cart.items.map(item => `${item.quantity}x ${item.name}`).join(', ')
+      : 'empty';
+
+    const prompt = `
+You are a helpful assistant for ${restaurant}. Help the customer with their order.
+
+MENU:
+${menuText}
+
+CURRENT CART: ${cartText}
+
+CUSTOMER MESSAGE: "${userMessage}"
+
+Provide a helpful, friendly response that:
+- Answers their question about the menu or restaurant
+- Suggests relevant menu items if appropriate
+- Keeps responses concise (under 100 words)
+- Uses emojis sparingly for friendliness
+
+Do not make up menu items or prices that aren't listed above.
+`;
+
+    const response = await getOpenAIClient().chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.7,
+      max_tokens: 150
+    });
+
+    return response.choices[0].message.content;
+
+  } catch (error) {
+    console.error('Error generating response:', error);
+    return "I'm having trouble right now. Please try asking about our menu or placing an order!";
+  }
+}
+
+class PromptOrchestrator {
+  async extractMenuItems(userMessage, menu) {
+    return extractMenuItems(userMessage, menu);
+  }
+
+  async generateResponse(context) {
+    return generateResponse(context);
+  }
+
+  async buildPromptAndCallLLM(...args) {
+    return buildPromptAndCallLLM(...args);
+  }
+}
+
 module.exports = { 
   buildPromptAndCallLLM,
   evaluateLLMResponse,
   getLearningInsights,
   conversationStates,
-  getConversationState: () => conversationTracker.currentState
+  getConversationState: () => conversationTracker.currentState,
+  extractMenuItems,
+  generateResponse,
+  PromptOrchestrator
 };
