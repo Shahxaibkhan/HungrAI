@@ -1,6 +1,7 @@
 [build]
   publish = "frontend"
   functions = "api"
+  command = "npm install && echo Force rebuild $(date +%s)"
 
 [build.environment]
   NODE_VERSION = "18"
