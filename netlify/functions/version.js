@@ -1,5 +1,5 @@
 // Health/version endpoint for deployment verification
-const BUILD_VERSION = 'v2025-10-28-5';
+const BUILD_VERSION = 'v2025-10-28-6';
 console.log(`[BOOT] version function loaded build=${BUILD_VERSION}`);
 exports.handler = async () => {
   return {
