@@ -2,7 +2,7 @@
 // Original source located previously at api/whatsapp-webhook.js
 // Instrumentation included for build verification.
 
-const BUILD_VERSION = 'v2025-10-28-2';
+const BUILD_VERSION = 'v2025-10-28-3';
 const TOKEN_TAIL = process.env.WHATSAPP_ACCESS_TOKEN ? process.env.WHATSAPP_ACCESS_TOKEN.slice(-8) : 'NO_TOKEN';
 console.log(`[BOOT] whatsapp-webhook starting build=${BUILD_VERSION} tokenTail=****${TOKEN_TAIL}`);
 
