@@ -1,0 +1,39 @@
+{
+  "name": "cart_status",
+  "displayName": "cart_status",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Here's what you have in your cart! 🛒"
+        },
+        {
+          "type": 0,
+          "speech": "Let me show you your current order! 📋"
+        },
+        {
+          "type": 0,
+          "speech": "Your cart summary is coming up! ✅"
+        },
+        {
+          "type": 0,
+          "speech": "Here's everything you've ordered so far! 🍽️"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

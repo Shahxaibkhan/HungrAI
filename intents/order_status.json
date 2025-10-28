@@ -1,0 +1,39 @@
+{
+  "name": "order_status",
+  "displayName": "order_status",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Let me check your order status for you! 🔍"
+        },
+        {
+          "type": 0,
+          "speech": "Looking up your order details now! ⏰"
+        },
+        {
+          "type": 0,
+          "speech": "I'll get your order status right away! 📋"
+        },
+        {
+          "type": 0,
+          "speech": "Checking on your order progress! 🍽️"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

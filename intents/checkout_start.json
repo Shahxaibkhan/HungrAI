@@ -1,0 +1,39 @@
+{
+  "name": "checkout_start",
+  "displayName": "checkout_start",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Great! Let's proceed with your order. I'll need some details! 🏁"
+        },
+        {
+          "type": 0,
+          "speech": "Perfect! Time to checkout. Let me gather your information! 💳"
+        },
+        {
+          "type": 0,
+          "speech": "Awesome! Let's finalize your order. Ready to checkout? ✅"
+        },
+        {
+          "type": 0,
+          "speech": "Excellent choice! Let's get your order processed! 🎉"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

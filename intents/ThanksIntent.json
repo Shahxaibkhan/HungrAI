@@ -1,0 +1,102 @@
+{
+  "name": "ThanksIntent",
+  "displayName": "ThanksIntent",
+  "auto": true,
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "en",
+          "speech": [
+            "You’re most welcome 🙏"
+          ]
+        },
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "ur",
+          "speech": [
+            "شکریہ آپ کا بھی 🙏"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {}
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "fallbackIntent": false,
+  "events": [],
+  "trainingPhrases": [
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Thanks"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Thank you"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Thanks a lot"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "شکریہ"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "آپ کا شکریہ"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "جزاک اللہ"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Shukriya"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Thanks yaar"
+        }
+      ]
+    }
+  ]
+}

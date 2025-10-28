@@ -1,0 +1,39 @@
+{
+  "name": "add_item",
+  "displayName": "add_item",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Great choice! I'll add that to your order. 🛒"
+        },
+        {
+          "type": 0,
+          "speech": "Added to your cart! Anything else? ✅"
+        },
+        {
+          "type": 0,
+          "speech": "Perfect! That's now in your order. 👍"
+        },
+        {
+          "type": 0,
+          "speech": "Item added successfully! Keep browsing or checkout when ready. 🎉"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

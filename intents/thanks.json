@@ -1,0 +1,39 @@
+{
+  "name": "thanks",
+  "displayName": "thanks",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "You're very welcome! Happy to help! 😊"
+        },
+        {
+          "type": 0,
+          "speech": "My pleasure! Enjoy your meal! 🍽️"
+        },
+        {
+          "type": 0,
+          "speech": "Anytime! Thanks for choosing us! 🙏"
+        },
+        {
+          "type": 0,
+          "speech": "You're welcome! Hope you love your order! ❤️"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

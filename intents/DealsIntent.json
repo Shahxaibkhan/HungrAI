@@ -1,0 +1,102 @@
+{
+  "name": "DealsIntent",
+  "displayName": "DealsIntent",
+  "auto": true,
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "en",
+          "speech": [
+            "Here are today's HungerAI deals 🔥: 1) Naanza Combo — 20% off; 2) Burger Meal — Buy 1 Get 1 half-price."
+          ]
+        },
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "ur",
+          "speech": [
+            "آج کی HungerAI آفرز 🔥: 1) Naanza Combo — 20% رعایت؛ 2) برگر میل — ایک کے ساتھ دوسرے پر نصف قیمت۔"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {}
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "fallbackIntent": false,
+  "events": [],
+  "trainingPhrases": [
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Show me today's deals"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Any deals?"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "What are today's offers?"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "آج کی آفر بتائیں"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "کیا آفرز ہیں؟"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "آفرز دکھائیں"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Aaj deals kya hain"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Deals kya hain"
+        }
+      ]
+    }
+  ]
+}

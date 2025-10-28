@@ -1,0 +1,112 @@
+[
+  {
+    "id": "cancel-order-user-1",
+    "data": [
+      {
+        "text": "cancel order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-2",
+    "data": [
+      {
+        "text": "I want to cancel",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-3",
+    "data": [
+      {
+        "text": "nevermind",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-4",
+    "data": [
+      {
+        "text": "forget it",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-5",
+    "data": [
+      {
+        "text": "no thanks",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-6",
+    "data": [
+      {
+        "text": "I changed my mind",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-7",
+    "data": [
+      {
+        "text": "stop the order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-8",
+    "data": [
+      {
+        "text": "abort",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-9",
+    "data": [
+      {
+        "text": "I don't want to order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cancel-order-user-10",
+    "data": [
+      {
+        "text": "clear my cart",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  }
+]

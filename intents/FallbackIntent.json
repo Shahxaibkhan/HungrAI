@@ -1,0 +1,78 @@
+{
+  "name": "FallbackIntent",
+  "displayName": "FallbackIntent",
+  "auto": true,
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "en",
+          "speech": [
+            "Sorry 😔 I didn’t get that. Can you rephrase?"
+          ]
+        },
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "ur",
+          "speech": [
+            "معذرت 😔 میں سمجھ نہیں سکا، براہ کرم دوبارہ بتائیں؟"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {}
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "fallbackIntent": true,
+  "events": [],
+  "trainingPhrases": [
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "I don't understand"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Can you repeat?"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "میں سمجھا نہیں"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "دوبارہ بتائیں"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Samajh nahi aya"
+        }
+      ]
+    }
+  ]
+}

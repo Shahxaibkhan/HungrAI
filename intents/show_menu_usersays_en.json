@@ -1,0 +1,134 @@
+[
+  {
+    "id": "show-menu-user-1",
+    "data": [
+      {
+        "text": "show menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-2",
+    "data": [
+      {
+        "text": "what do you have",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-3",
+    "data": [
+      {
+        "text": "menu please",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-4",
+    "data": [
+      {
+        "text": "what food do you have",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-5",
+    "data": [
+      {
+        "text": "can I see the menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-6",
+    "data": [
+      {
+        "text": "what's available",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-7",
+    "data": [
+      {
+        "text": "show me your menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-8",
+    "data": [
+      {
+        "text": "what can I order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-9",
+    "data": [
+      {
+        "text": "menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-10",
+    "data": [
+      {
+        "text": "what dishes do you serve",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-11",
+    "data": [
+      {
+        "text": "display menu",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "show-menu-user-12",
+    "data": [
+      {
+        "text": "food options",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  }
+]

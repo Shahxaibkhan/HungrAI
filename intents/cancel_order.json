@@ -1,0 +1,39 @@
+{
+  "name": "cancel_order",
+  "displayName": "cancel_order",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "No problem! Your order has been cancelled. 🚫"
+        },
+        {
+          "type": 0,
+          "speech": "Order cancelled successfully. Feel free to start over anytime! ❌"
+        },
+        {
+          "type": 0,
+          "speech": "Done! Your order has been cancelled. Thanks for visiting! 👋"
+        },
+        {
+          "type": 0,
+          "speech": "Cancelled! No worries, come back when you're ready to order! 😊"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

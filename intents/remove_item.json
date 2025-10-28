@@ -1,0 +1,39 @@
+{
+  "name": "remove_item",
+  "displayName": "remove_item",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "No problem! I'll remove that from your order. 🗑️"
+        },
+        {
+          "type": 0,
+          "speech": "Item removed from your cart. ❌"
+        },
+        {
+          "type": 0,
+          "speech": "Done! That's been taken off your order. ✅"
+        },
+        {
+          "type": 0,
+          "speech": "Removed successfully! Your order has been updated. 👍"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

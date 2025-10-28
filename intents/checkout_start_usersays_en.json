@@ -1,0 +1,112 @@
+[
+  {
+    "id": "checkout-start-user-1",
+    "data": [
+      {
+        "text": "checkout",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-2",
+    "data": [
+      {
+        "text": "I want to order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-3",
+    "data": [
+      {
+        "text": "place order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-4",
+    "data": [
+      {
+        "text": "I'm ready to pay",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-5",
+    "data": [
+      {
+        "text": "proceed to checkout",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-6",
+    "data": [
+      {
+        "text": "finalize order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-7",
+    "data": [
+      {
+        "text": "complete my order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-8",
+    "data": [
+      {
+        "text": "let's order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-9",
+    "data": [
+      {
+        "text": "I'm done ordering",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "checkout-start-user-10",
+    "data": [
+      {
+        "text": "submit order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  }
+]

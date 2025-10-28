@@ -1,0 +1,39 @@
+{
+  "name": "help",
+  "displayName": "help",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "I'm here to help! You can ask me to show the menu, add items, check your cart, or place an order. What would you like to do? 🤖"
+        },
+        {
+          "type": 0,
+          "speech": "Happy to assist! I can help you browse our menu, manage your cart, and place orders. Just tell me what you need! 😊"
+        },
+        {
+          "type": 0,
+          "speech": "Need assistance? I can show you our menu, help you order, check your cart status, and more! How can I help? 💁‍♀️"
+        },
+        {
+          "type": 0,
+          "speech": "I'm your ordering assistant! Ask me about our menu, add/remove items, check your order, or get help anytime! 🍽️"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

@@ -1,0 +1,102 @@
+{
+  "name": "TrackOrder",
+  "displayName": "TrackOrder",
+  "auto": true,
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "en",
+          "speech": [
+            "Please share your order number so I can track it."
+          ]
+        },
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "ur",
+          "speech": [
+            "براہ کرم اپنا آرڈر نمبر بتائیں تاکہ میں ٹریک کر سکوں۔"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {}
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "fallbackIntent": false,
+  "events": [],
+  "trainingPhrases": [
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Where is my order"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Track my order"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Order status"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "میرا آرڈر کہاں ہے"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "آرڈر ٹریک کریں"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "آرڈر کی صورتحال کیا ہے"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Mera order kahan hai"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Order track karo"
+        }
+      ]
+    }
+  ]
+}

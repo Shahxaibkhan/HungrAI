@@ -1,0 +1,31 @@
+{
+  "name": "greeting",
+  "displayName": "greeting",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": [
+            "Hi there! Ready to browse the menu or add something straight away?",
+            "Hello! Want to see the menu or add a favorite item?",
+            "Hey! I can show the menu, suggest popular items, or take your order—what would you like?"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

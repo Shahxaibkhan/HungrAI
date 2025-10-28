@@ -1,0 +1,102 @@
+{
+  "name": "OrderPizza",
+  "displayName": "OrderPizza",
+  "auto": true,
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "en",
+          "speech": [
+            "Sure! 🍕 Which size of pizza would you like? (Small / Medium / Large)"
+          ]
+        },
+        {
+          "type": 0,
+          "platform": "PLATFORM_UNSPECIFIED",
+          "lang": "ur",
+          "speech": [
+            "جی بالکل 🍕 آپ کس سائز کا پیزا چاہیں گے؟ (چھوٹا / درمیانہ / بڑا)"
+          ]
+        }
+      ],
+      "defaultResponsePlatforms": {}
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "fallbackIntent": false,
+  "events": [],
+  "trainingPhrases": [
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "I want pizza"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Order pizza"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Can I order pizza?"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "مجھے پیزا چاہیے"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "پیزا آرڈر کریں"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "پیزا دو"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Pizza chahiye"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "Order pizza karna hai"
+        }
+      ]
+    }
+  ]
+}

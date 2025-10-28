@@ -1,0 +1,39 @@
+{
+  "name": "show_menu",
+  "displayName": "show_menu", 
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Let me show you our delicious menu! 🍽️"
+        },
+        {
+          "type": 0,
+          "speech": "Here's what we have available today! 📋"
+        },
+        {
+          "type": 0,
+          "speech": "Our full menu is coming right up! 🥘"
+        },
+        {
+          "type": 0,
+          "speech": "Check out all our tasty options! 👨‍🍳"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

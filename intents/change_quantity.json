@@ -1,0 +1,39 @@
+{
+  "name": "change_quantity",
+  "displayName": "change_quantity",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Sure! I'll update the quantity for you. 🔢"
+        },
+        {
+          "type": 0,
+          "speech": "Quantity updated! Your order has been modified. ✏️"
+        },
+        {
+          "type": 0,
+          "speech": "No problem! I've changed that for you. 📝"
+        },
+        {
+          "type": 0,
+          "speech": "Done! The amount has been updated in your cart. 🛒"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

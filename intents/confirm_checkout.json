@@ -1,0 +1,39 @@
+{
+  "name": "confirm_checkout",
+  "displayName": "confirm_checkout",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Perfect! Your order has been confirmed! 🎉 We'll prepare it right away!"
+        },
+        {
+          "type": 0,
+          "speech": "Order confirmed! Thank you for choosing us! 👨‍🍳"
+        },
+        {
+          "type": 0,
+          "speech": "Excellent! Your order is confirmed and being prepared! ✅"
+        },
+        {
+          "type": 0,
+          "speech": "All set! Your order has been placed successfully! 🍽️"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

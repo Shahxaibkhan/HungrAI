@@ -1,0 +1,39 @@
+{
+  "name": "goodbye",
+  "displayName": "goodbye",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "speech": "Goodbye! Thanks for visiting us today! 👋"
+        },
+        {
+          "type": 0,
+          "speech": "See you later! Have a great day! 😊"
+        },
+        {
+          "type": 0,
+          "speech": "Take care! Come back anytime! 🤗"
+        },
+        {
+          "type": 0,
+          "speech": "Bye! Hope to serve you again soon! 🍽️"
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": []
+}

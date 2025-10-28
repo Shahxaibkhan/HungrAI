@@ -1,0 +1,56 @@
+{
+  "name": "projects/valued-torch-220213/locations/global/agent/intents/show.menu",
+  "displayName": "show.menu",
+  "priority": 500000,
+  "trainingPhrases": [
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "show me the menu"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE", 
+      "parts": [
+        {
+          "text": "menu please"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "what's on the menu"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "can I see the menu"
+        }
+      ]
+    },
+    {
+      "type": "EXAMPLE",
+      "parts": [
+        {
+          "text": "menu"
+        }
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "text": {
+        "text": [
+          "Here's our delicious menu! What would you like to order?"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "cart-status-user-1",
+    "data": [
+      {
+        "text": "what's in my cart",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-2",
+    "data": [
+      {
+        "text": "show my order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-3",
+    "data": [
+      {
+        "text": "cart summary",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-4",
+    "data": [
+      {
+        "text": "what did I order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-5",
+    "data": [
+      {
+        "text": "check my order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-6",
+    "data": [
+      {
+        "text": "review order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-7",
+    "data": [
+      {
+        "text": "what's my total",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-8",
+    "data": [
+      {
+        "text": "show cart",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-9",
+    "data": [
+      {
+        "text": "order details",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "cart-status-user-10",
+    "data": [
+      {
+        "text": "what have I selected",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  }
+]

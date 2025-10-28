@@ -1,0 +1,112 @@
+[
+  {
+    "id": "confirm-checkout-user-1",
+    "data": [
+      {
+        "text": "yes confirm",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-2",
+    "data": [
+      {
+        "text": "confirm order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-3",
+    "data": [
+      {
+        "text": "yes place the order",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-4",
+    "data": [
+      {
+        "text": "confirmed",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-5",
+    "data": [
+      {
+        "text": "yes that's correct",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-6",
+    "data": [
+      {
+        "text": "proceed",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-7",
+    "data": [
+      {
+        "text": "yes go ahead",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-8",
+    "data": [
+      {
+        "text": "approve",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-9",
+    "data": [
+      {
+        "text": "ok submit",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  },
+  {
+    "id": "confirm-checkout-user-10",
+    "data": [
+      {
+        "text": "finalize it",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0
+  }
+]
