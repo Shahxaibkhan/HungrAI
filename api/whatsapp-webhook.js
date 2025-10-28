@@ -1,6 +1,11 @@
 // WhatsApp Cloud API Webhook handler - Complete Implementation
 // Handles verification (GET) and incoming messages (POST)
 // Uses environment variables: WHATSAPP_VERIFY_TOKEN, WHATSAPP_ACCESS_TOKEN
+// Build instrumentation added for deployment verification.
+
+const BUILD_VERSION = 'v2025-10-28-1';
+const TOKEN_TAIL = process.env.WHATSAPP_ACCESS_TOKEN ? process.env.WHATSAPP_ACCESS_TOKEN.slice(-8) : 'NO_TOKEN';
+console.log(`[BOOT] whatsapp-webhook starting build=${BUILD_VERSION} tokenTail=****${TOKEN_TAIL}`);
 
 const { connectDB } = require('./dbConnection');
 const WhatsAppMessenger = require('./whatsappMessenger');
@@ -52,20 +57,26 @@ async function processUserMessage(message, restaurant) {
 
     console.log('🎯 Message routing:', routing);
 
+    // Normalize routing labels from classifier: fast | dialogflow | llm | ignore
     switch (routing.route) {
-      case 'fast-path':
-        await handleFastPathResponse(from, routing.pattern, restaurant);
+      case 'fast':
+        await handleFastPathResponse(from, routing.intent, restaurant);
         break;
 
       case 'dialogflow':
         await handleDialogflowResponse(from, text, restaurant, routing.dialogflowResponse);
         break;
 
-      case 'gpt-fallback':
+      case 'llm':
         await handleGPTFallback(from, text, restaurant, session);
         break;
 
+      case 'ignore':
+        console.log('🪻 Ignoring empty message');
+        break;
+
       default:
+        console.warn('⚠️ Unknown routing route received:', routing);
         await messenger.sendTextMessage(from, "I'm not sure how to help with that. Can you try rephrasing?");
     }
 
@@ -84,16 +95,15 @@ async function processUserMessage(message, restaurant) {
 /**
  * Handle fast-path responses for common queries
  */
-async function handleFastPathResponse(userNumber, pattern, restaurant) {
-  switch (pattern) {
+async function handleFastPathResponse(userNumber, intent, restaurant) {
+  switch (intent) {
     case 'greeting':
       await messenger.sendTextMessage(
         userNumber,
         `Welcome to ${restaurant.name}! 👋\n\nI can help you:\n• View our menu\n• Place an order\n• Track your order\n\nJust tell me what you'd like to do!`
       );
       break;
-
-    case 'menu_request':
+    case 'show_menu':
       const menu = await RestaurantLookup.getRestaurantMenu(restaurant);
       if (menu.length > 0) {
         await messenger.sendMenuMessage(
@@ -109,6 +119,9 @@ async function handleFastPathResponse(userNumber, pattern, restaurant) {
       }
       break;
 
+    case 'help':
+      await messenger.sendTextMessage(userNumber, "You can ask for 'menu', 'cart', 'checkout', or say hello! 😊");
+      break;
     case 'hours':
       const hours = restaurant.hours || 'Please contact us for current hours';
       await messenger.sendTextMessage(userNumber, `⏰ Our hours: ${hours}`);
@@ -120,7 +133,7 @@ async function handleFastPathResponse(userNumber, pattern, restaurant) {
       break;
 
     default:
-      await messenger.sendTextMessage(userNumber, "How can I help you today?");
+      await messenger.sendTextMessage(userNumber, "How can I help you today? Try 'menu' or 'cart'.");
   }
 }
 
