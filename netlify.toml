@@ -17,7 +17,5 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# NOTE: Removed previous catch-all SPA redirect to allow function endpoints to be tested.
+# Reintroduce a scoped SPA fallback later if needed.
