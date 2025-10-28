@@ -6,15 +6,17 @@ Complete WhatsApp automation system with hybrid Dialogflow + GPT architecture, m
 ## ✅ Pre-Deployment Checklist
 
 ### 1. Environment Configuration
-- [ ] `.env` file configured with all required variables:
+- [ ] `.env` / Netlify dashboard variables configured (use placeholders, never commit real secrets):
   ```
-  MONGODB_URI=mongodb+srv://...
-  OPENAI_API_KEY=sk-...
-  DIALOGFLOW_PROJECT_ID=your-project-id
-  WHATSAPP_ACCESS_TOKEN=EAAB...
-  WHATSAPP_PHONE_NUMBER_ID=123456789
-  WHATSAPP_BUSINESS_ID=123456789
-  WHATSAPP_VERIFY_TOKEN=your-custom-verify-token
+  MONGODB_URI=<your_mongodb_uri>
+  OPENAI_API_KEY=<your_openai_api_key>
+  DIALOGFLOW_PROJECT_ID=<your_dialogflow_project_id>
+  WHATSAPP_ACCESS_TOKEN=<your_whatsapp_access_token>
+  WHATSAPP_PHONE_NUMBER_ID=817693608099449
+  WHATSAPP_BUSINESS_ID=<your_whatsapp_business_id>
+  WHATSAPP_VERIFY_TOKEN=hungerai_secret_2025
+  AI_MODE=hybrid
+  AI_FALLBACK_MODEL=gpt-4o-mini
   ```
 
 ### 2. Database Setup
@@ -31,8 +33,8 @@ Complete WhatsApp automation system with hybrid Dialogflow + GPT architecture, m
 ### 4. WhatsApp Business Setup
 - [ ] WhatsApp Business Account created
 - [ ] Phone number verified and configured
-- [ ] Access token generated
-- [ ] Webhook URL configured (will be deployment URL + `/api/whatsapp-webhook`)
+- [ ] Long-lived access token generated (System User)
+- [ ] Webhook URL configured: `https://<your-site>.netlify.app/.netlify/functions/whatsapp-webhook`
 
 ## 🏗️ System Architecture
 
@@ -64,48 +66,40 @@ Complete WhatsApp automation system with hybrid Dialogflow + GPT architecture, m
 
 ## 🌐 Deployment Options
 
-### Option 1: Netlify (Already Configured!)
+### Netlify Deployment (Primary)
 ```bash
-# Install Netlify CLI (if not already installed)
+# Install Netlify CLI
 npm i -g netlify-cli
 
-# Deploy to production
+# Login
+netlify login
+
+# Local dev (functions + proxy)
+netlify dev
+
+# Production deploy (manual trigger)
 netlify deploy --prod
-
-# Configure environment variables in Netlify dashboard
-# Set webhook URL in WhatsApp Business: https://your-site.netlify.app/.netlify/functions/whatsapp-webhook
 ```
 
-### Option 2: Vercel (Alternative)
+`netlify.toml` excerpt:
+```
+[build]
+  publish = "frontend"
+  functions = "netlify/functions"
+```
+
+Post-deploy build verification:
 ```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy from root directory
-vercel
-
-# Configure environment variables in Vercel dashboard
-# Set webhook URL in WhatsApp Business: https://your-app.vercel.app/api/whatsapp-webhook
+curl https://<your-site>.netlify.app/.netlify/functions/version
 ```
-
-### Option 3: Railway
-```bash
-# Install Railway CLI
-npm i -g @railway/cli
-
-# Deploy
-railway login
-railway init
-railway up
-```
+Expect JSON with current `build` value (e.g. `v2025-10-28-3`).
 
 ## 🧪 Testing Flow
 
 ### 1. Basic Webhook Verification
 ```bash
-# Test webhook verification (GET request)
-curl "https://your-deployment-url/api/whatsapp-webhook?hub.mode=subscribe&hub.challenge=test123&hub.verify_token=your-verify-token"
-# Should return: test123
+curl "https://<your-site>.netlify.app/.netlify/functions/whatsapp-webhook?hub.mode=subscribe&hub.challenge=test123&hub.verify_token=hungerai_secret_2025"
+# Expected: test123
 ```
 
 ### 2. Manual Message Testing
@@ -158,16 +152,11 @@ await createSampleRestaurant();
 ### WhatsApp Webhook URL
 After deployment, configure your webhook URL in WhatsApp Business Manager:
 
-**For Netlify:**
+**Webhook Configuration:**
 ```
-Webhook URL: https://your-site.netlify.app/.netlify/functions/whatsapp-webhook
+Webhook URL: https://<your-site>.netlify.app/.netlify/functions/whatsapp-webhook
 Verify Token: hungerai_secret_2025
-```
-
-**For Vercel (if using):**
-```
-Webhook URL: https://your-app.vercel.app/api/whatsapp-webhook
-Verify Token: hungerai_secret_2025
+Events: messages
 ```
 
 ### Dialogflow Integration
@@ -199,11 +188,13 @@ Restaurant documents should include:
 ## 🚨 Troubleshooting
 
 ### Common Issues
-1. **Webhook verification fails**: Check verify token matches in .env
-2. **Restaurant not found**: Ensure phoneNumberId is correctly mapped
-3. **Dialogflow not responding**: Verify project ID and service account
-4. **GPT not working**: Check OpenAI API key and quota
-5. **Sessions not persisting**: Verify file write permissions
+1. **Webhook verification fails**: Token mismatch; confirm `WHATSAPP_VERIFY_TOKEN`.
+2. **Stale function code**: Missing `[BOOT]` log; clear Netlify cache & redeploy.
+3. **Restaurant not found**: Missing document with `phoneNumberId`.
+4. **401 Unauthorized**: Expired `WHATSAPP_ACCESS_TOKEN`; rotate via System User.
+5. **Dialogflow not responding**: Wrong project ID or missing credentials JSON.
+6. **GPT not working**: Invalid OpenAI key / quota exhausted.
+7. **Sessions not persisting**: Check storage mechanism (consider DB vs temp files).
 
 ### Debug Mode
 Add to `.env` for detailed logging:
@@ -248,6 +239,9 @@ Create test endpoints for debugging:
 
 ---
 
-**Status: ✅ Complete Implementation Ready for Production**
+**Status: ✅ Netlify Deployment Ready**
 
-All core components implemented and integrated. System handles complete ordering workflow with hybrid AI, multi-tenant support, and robust session management.
+Core ordering + intent routing active. Validate with:
+1. Version endpoint returns current build.
+2. First WhatsApp message logs `[BOOT]` and `🎯 Message routing`.
+3. Fast-path intents respond ("menu", "hi").
